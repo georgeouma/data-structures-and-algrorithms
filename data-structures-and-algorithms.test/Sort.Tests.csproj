@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\data-structures-and-algorithms\data_structures_and_algorithms.csproj" />
+    <ProjectReference Include="..\data-structures-and-algorithms\Sort.csproj" />
   </ItemGroup>
 
 </Project>

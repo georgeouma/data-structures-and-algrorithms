@@ -1,4 +1,4 @@
-﻿namespace data_structures_and_algorithms.Tests
+﻿namespace Sort.Tests
 {
     public interface ISortTest
     {

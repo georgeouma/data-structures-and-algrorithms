@@ -2,7 +2,7 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace data_structures_and_algorithms.Tests
+namespace Sort.Tests
 {
     [TestClass]
     public class CountingSortTest : ISortTest
