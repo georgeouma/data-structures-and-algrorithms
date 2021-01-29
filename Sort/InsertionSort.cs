@@ -12,25 +12,15 @@ namespace Sort
         {
             for (int i = 1; i < array.Length; i++)
             {
-                T current = array[i];
-                for (int j = i; j > 0; j--)
+                T key = array[i];
+                int pointer = i;
+                while (pointer > 0 && key.CompareTo(array[pointer-1]) < 0)
                 {
-                    if (current.CompareTo(array[j - 1]) < 0)
-                    {
-                        array[j] = array[j - 1];
-                        if (j == 1)
-                        {
-                            array[j - 1] = current;
-                            break;
-                        }
-                        continue;
-                    }
-                    if (current.CompareTo(array[j - 1]) > 0)
-                    {
-                        array[j] = current;
-                        break;
-                    }
+                    array[pointer] = array[pointer-1];
+                    pointer--;
                 }
+
+                array[pointer] = key;
             }
 
             return array;
