@@ -54,11 +54,11 @@ namespace Sort
 
             for (int i = start; i <= end; i++)
             {
-                if(leftPointer == left.Length)
+                if(leftPointer >= leftSize)
                 {
                     array[i] = right[rightPointer];
                     rightPointer++;
-                }else if(rightPointer == rightSize)
+                }else if(rightPointer >= rightSize)
                 {
                     array[i] = left[leftPointer];
                     leftPointer++;
