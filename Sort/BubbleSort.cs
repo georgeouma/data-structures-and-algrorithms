@@ -1,6 +1,6 @@
 using System;
 
-namespace data_structures_and_algrorithms
+namespace Sort
 {
     public class BubbleSort: ISort
     {

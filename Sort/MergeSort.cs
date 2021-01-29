@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace data_structures_and_algrorithms
+namespace Sort
 {
     public class MergeSort : ISort
     {
@@ -20,47 +20,58 @@ namespace data_structures_and_algrorithms
 
         private T[] Sort<T>(T[] array, int start, int end) where T : IComparable
         {
-            int middle = Convert.ToInt32(Math.Floor(Convert.ToDecimal((end - start) / 2)) + start);
-            Console.WriteLine("sort: {0}, {1}, {2}", start, middle, end);
-            if (middle > 0)
+            if(start < end)
             {
-                Sort(array, start, middle);
-                //MergeSort(array, middle + 1, end);
-            }
+                int middle = Convert.ToInt32(Math.Floor(Convert.ToDecimal((end - start) / 2)) + start);
 
-            Merge(array, start, middle, end);
+                Sort(array, start, middle);
+                Sort(array, middle + 1, end);
+                Merge(array, start, middle, end);
+            }
+            
 
             return array;
         }
         private void Merge<T>(T[] array, int start, int middle, int end) where T : IComparable
         {
-            int mergedArrayLength = end - start + 1;
-            T[] mergedArray = new T[mergedArrayLength];
-            int pointer = 0;
+            int leftSize = (middle - start) + 1;
+            int rightSize = (end - middle);
 
-            int leftPointer = start;
-            int rightPointer = middle + 1;
+            T[] left = new T[leftSize];
+            T[] right = new T[rightSize];
 
-
-            while (leftPointer <= middle || rightPointer <= end)
+            for (int i = 0; i < leftSize; i++)
             {
-                if (array[leftPointer].CompareTo(array[rightPointer]) <= 0)
+                left[i] = array[start + i];
+            }
+            for (int i = 0; i < rightSize; i++)
+            {
+                right[i] = array[middle + 1 + i];
+            }
+
+            int leftPointer = 0;
+            int rightPointer = 0;
+
+            for (int i = start; i <= end; i++)
+            {
+                if(leftPointer == left.Length)
                 {
-                    mergedArray[pointer] = array[leftPointer];
+                    array[i] = right[rightPointer];
+                    rightPointer++;
+                }else if(rightPointer == rightSize)
+                {
+                    array[i] = left[leftPointer];
+                    leftPointer++;
+                }else if(left[leftPointer].CompareTo(right[rightPointer]) <= 0)
+                {
+                    array[i] = left[leftPointer];
                     leftPointer++;
                 }
                 else
                 {
-                    mergedArray[pointer] = array[rightPointer];
+                    array[i] = right[rightPointer];
                     rightPointer++;
                 }
-                pointer++;
-            }
-
-            pointer = 0;
-            for (int i = start; i <= end; i++)
-            {
-                array[i] = mergedArray[pointer];
             }
         }
     }

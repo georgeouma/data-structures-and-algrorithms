@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\data-structures-and-algorithms\Sort.csproj" />
+    <ProjectReference Include="..\Sort\Sort.csproj" />
   </ItemGroup>
 
 </Project>
