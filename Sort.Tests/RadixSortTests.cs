@@ -1,17 +1,15 @@
-﻿
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Sort.Tests
 {
-    [TestClass]
-    public class CountingSortTest : ISortTest
+    [TestClass()]
+    public class RadixSortTests
     {
-        [TestMethod]
-        public void SortsInAscendingOrderTest()
+        [TestMethod()]
+        public void SortTest()
         {
             int[] array = new int[] { 5, 4, 3, 2, 1 };
-            var sortedArray = new CountingSort().Sort(array);
+            var sortedArray = new RadixSort().Sort(array);
 
             Assert.AreEqual(sortedArray.Length, array.Length);
             for (int i = 0; i < array.Length - 1; i++)

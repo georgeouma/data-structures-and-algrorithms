@@ -8,7 +8,7 @@ namespace Sort.Tests
         [TestMethod]
         public void SortsInAscendingOrderTest()
         {
-            int[] array = new int[] { 5, 4, 3, 2, 1 };
+            int[] array = new int[] { 5, 4, 3, 2, 1, 7 };
             var sortedArray = new MergeSort().Sort(array);
 
             Assert.AreEqual(sortedArray.Length, array.Length);
