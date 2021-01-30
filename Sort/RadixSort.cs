@@ -6,20 +6,24 @@ namespace Sort
     {
         public int[] Sort(int[] array)
         {
-            int m = GetMax(array, array.Length);
+            int biggestItem = array[0];
+            for (int i = 1; i < array.Length; i++)
+                if (array[i].CompareTo(biggestItem) > 0)
+                    biggestItem = array[i];
 
             // Do counting sort for every digit. Note that 
             // instead of passing digit number, exp is passed. 
             // exp is 10^i where i is current digit number 
-            for (int exp = 1; m / exp > 0; exp *= 10)
-                CountingSort(array, array.Length, exp);
+            for (int exp = 1; biggestItem / exp > 0; exp *= 10)
+                CountingSort(array, exp);
 
             return array;
         }
 
-        private void CountingSort(int[] array, int n, int exp)
+        private void CountingSort(int[] array, int exp)
         {
-            int[] output = new int[n]; // output array 
+            int size = array.Length;
+            int[] output = new int[size]; // output array 
             int i;
             int[] count = new int[10];
 
@@ -28,7 +32,7 @@ namespace Sort
                 count[i] = 0;
 
             // Store count of occurrences in count[] 
-            for (i = 0; i < n; i++)
+            for (i = 0; i < size; i++)
                 count[(array[i] / exp) % 10]++;
 
             // Change count[i] so that count[i] now contains 
@@ -38,7 +42,7 @@ namespace Sort
                 count[i] += count[i - 1];
 
             // Build the output array 
-            for (i = n - 1; i >= 0; i--)
+            for (i = size - 1; i >= 0; i--)
             {
                 output[count[(array[i] / exp) % 10] - 1] = array[i];
                 count[(array[i] / exp) % 10]--;
@@ -47,17 +51,8 @@ namespace Sort
             // Copy the output array to arr[], so that arr[] now 
             // contains sorted numbers according to current 
             // digit 
-            for (i = 0; i < n; i++)
+            for (i = 0; i < size; i++)
                 array[i] = output[i];
-        }
-
-        private T GetMax<T>(T[] array, int n) where T: IComparable
-        {
-            T mx = array[0];
-            for (int i = 1; i < n; i++)
-                if (array[i].CompareTo( mx) > 0)
-                    mx = array[i];
-            return mx;
         }
     }
 }
