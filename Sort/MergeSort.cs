@@ -9,12 +9,12 @@ namespace Sort
             int start = 0;
             int end = array.Length - 1;
 
-            T[] result = Sort(array, start, end);
+            Sort(array, start, end);
 
-            return result;
+            return array;
         }
 
-        private T[] Sort<T>(T[] array, int start, int end) where T : IComparable
+        private void Sort<T>(T[] array, int start, int end) where T : IComparable
         {
             if(start < end)
             {
@@ -24,9 +24,6 @@ namespace Sort
                 Sort(array, middle + 1, end);
                 Merge(array, start, middle, end);
             }
-            
-
-            return array;
         }
         private void Merge<T>(T[] array, int start, int middle, int end) where T : IComparable
         {
