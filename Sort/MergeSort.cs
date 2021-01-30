@@ -47,35 +47,18 @@ namespace Sort
 
             int leftPointer = 0;
             int rightPointer = 0;
-            int mainPointer = start;
-            while (leftPointer < leftSize && rightPointer < rightSize)
+            for (int k = start; k <= end; k++)
             {
-                if (left[leftPointer].CompareTo(right[rightPointer]) <= 0)
+                if((rightPointer >= rightSize) || (leftPointer < leftSize && left[leftPointer].CompareTo(right[rightPointer]) <= 0))
                 {
-                    array[mainPointer] = left[leftPointer];
+                    array[k] = left[leftPointer];
                     leftPointer++;
-                    mainPointer++;
                 }
                 else
                 {
-                    array[mainPointer] = right[rightPointer];
+                    array[k] = right[rightPointer];
                     rightPointer++;
-                    mainPointer++;
                 }
-            }
-
-            while(leftPointer < leftSize)
-            {
-                array[mainPointer] = left[leftPointer];
-                leftPointer++;
-                mainPointer++;
-            }
-
-            while (rightPointer < rightSize)
-            {
-                array[mainPointer] = right[rightPointer];
-                rightPointer++;
-                mainPointer++;
             }
         }
     }
