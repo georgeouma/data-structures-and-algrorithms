@@ -1,5 +1,5 @@
 
-.vs/
-.vscode/*
-*/bin/*
-*/obj/*
+Csharp/.vs/
+Csharp/.vscode/*
+Csharp/*/bin/*
+Csharp/*/obj/*
