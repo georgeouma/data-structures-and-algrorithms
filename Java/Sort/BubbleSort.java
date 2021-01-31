@@ -1,7 +1,7 @@
 package Java.Sort;
 
 /**
- * BubbleSortort
+ * BubbleSort
  */
 public class BubbleSort {
 
