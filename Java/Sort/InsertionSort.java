@@ -1,6 +1,6 @@
 package Java.Sort;
 
-public class InsertionSorter {
+public class InsertionSort {
 
 	public <T extends Comparable<T>> T[] sort(T[] array) {
 		for (int i = 0; i < array.length; i++) {
