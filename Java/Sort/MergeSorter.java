@@ -1,4 +1,4 @@
-package chapter6;
+package Java.Sort;
 
 import java.util.Arrays;
 

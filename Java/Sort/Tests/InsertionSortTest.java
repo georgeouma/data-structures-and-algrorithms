@@ -1,4 +1,4 @@
-package Java.Tests;
+package Java.Sort.Tests;
 
 public class InsertionSortTest {
     
