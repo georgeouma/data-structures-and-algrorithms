@@ -1,8 +1,6 @@
 package Java.Sort;
 
-import java.util.Arrays;
-
-public class MergeSorter {
+public class MergeSort {
 	
 	public void sort(int[] data) {
 		mergeSort(data, 0, data.length-1);
@@ -38,12 +36,5 @@ public class MergeSorter {
 				j++;
 			}
 		}
-	}
-	
-	public static void main(String[] args) {
-		MergeSorter sorter = new MergeSorter();
-		int[] data = {4,1,6,9,5};
-		sorter.sort(data);
-		System.out.println(Arrays.toString(data));
 	}
 }
